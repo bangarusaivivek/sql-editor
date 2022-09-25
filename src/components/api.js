@@ -1,4 +1,3 @@
-import { tab } from "@testing-library/user-event/dist/tab";
 import { availableTableData } from "../tableData";
 
 const getTableFromQuery = async (query) => {
