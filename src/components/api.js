@@ -62,7 +62,7 @@ const getTableFromQuery = async (query) => {
                     tableArray = reqTable.tableRef.filter(item => queryObj[i].condition[1].includes(item[queryObj[i].condition[0].trim()].toLowerCase()));
                 }
 
-                if (tableArray.length == 0) {
+                if (tableArray.length === 0) {
                     throw new Error("SQL query successfully executed. However, the result is empty.")
                 }
 
@@ -87,7 +87,7 @@ const getTableFromQuery = async (query) => {
                     tableArray = reqTable.tableRef
                 }
 
-                if (tableArray.length == 0) {
+                if (tableArray.length === 0) {
                     throw new Error("SQL query successfully executed. However, the result is empty.")
                 }
 

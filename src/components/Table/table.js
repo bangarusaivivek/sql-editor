@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './table.styles.css';
 
 const Table = React.memo(function Table({ tableData }) {
