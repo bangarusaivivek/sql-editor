@@ -1,6 +1,7 @@
+import React from 'react';
 import TableContainer from "./TableContainer";
 
-function QueryOutputContainer({ queryTableData, loading, queryError }) {
+const QueryOutputContainer = React.memo(function QueryOutputContainer({ queryTableData, loading, queryError }) {
     return (
         <>
             {
@@ -9,6 +10,6 @@ function QueryOutputContainer({ queryTableData, loading, queryError }) {
             }
         </>
     )
-}
+});
 
 export default QueryOutputContainer;

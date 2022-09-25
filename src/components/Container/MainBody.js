@@ -1,9 +1,8 @@
-
-import { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useState, Suspense } from 'react';
 import { availableTableData, predefinedQueries } from '../../tableData';
 import { getTableFromQuery } from '../api';
-import QueryOutputContainer from './QueryOutputContainer';
-import TableContainer from './TableContainer';
+const TableContainer = React.lazy(() => import('./TableContainer'));
+const QueryOutputContainer = React.lazy(() => import('./QueryOutputContainer'));
 
 function MainSQLContainer() {
     const [sqlQuery, setSqlQuery] = useState("");
@@ -13,7 +12,7 @@ function MainSQLContainer() {
     const [queryTableData, setQueryTableData] = useState([]);
     const [loading, setLoading] = useState(false);
 
-    const processSQLQuery = useCallback(async (query) => {
+    const processSQLQuery = async (query) => {
         try {
             setQueryError("");
             setQueryTableData([]);
@@ -36,15 +35,15 @@ function MainSQLContainer() {
             setLoading(false);
             setQueryError(e.message);
         }
-    }, [])
+    };
 
-    const predefinedQueriesJSX = useCallback(predefinedQueries.map(item => {
+    const predefinedQueriesJSX = predefinedQueries.map(item => {
         return (
             <div className='predefined-query-block' onClick={e => processSQLQuery(item)}>
                 {item}
             </div>
         )
-    }), [tabId])
+    });
    
     return (
         <div className="main-sql-container">
@@ -78,8 +77,13 @@ function MainSQLContainer() {
                 <div className="main-container__mobile-output-table">
                     {
                         outputTabId === 1 ? 
-                        <QueryOutputContainer queryTableData={queryTableData} loading={loading} queryError={queryError} /> :
-                        <TableContainer tables={availableTableData} />
+                        <Suspense fallback={<div>Loading...</div>}>
+                            <QueryOutputContainer queryTableData={queryTableData} loading={loading} queryError={queryError} /> 
+                        </Suspense>
+                        :
+                        <Suspense fallback={<div>Loading...</div>}>
+                            <TableContainer tables={availableTableData} />
+                        </Suspense>  
                     }
                     
                 </div>

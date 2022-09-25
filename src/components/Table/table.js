@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import './table.styles.css';
 
-function Table({ tableData }) {
+const Table = React.memo(function Table({ tableData }) {
     const colHeaders = tableData?.length ? Object.keys(tableData[0]) : [];
 
     return (
@@ -26,6 +26,6 @@ function Table({ tableData }) {
         }
         </>
     )
-}
+});
 
 export default Table;
