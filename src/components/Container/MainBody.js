@@ -1,4 +1,4 @@
-import React, { useCallback, useState, Suspense } from 'react';
+import React, { useState, Suspense } from 'react';
 import { availableTableData, predefinedQueries } from '../../tableData';
 import { getTableFromQuery } from '../api';
 const TableContainer = React.lazy(() => import('./TableContainer'));
