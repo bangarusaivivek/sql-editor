@@ -1,0 +1,251 @@
+.main-container {
+    display: flex;
+    flex-direction: row;
+    height: calc(100vh - 55px);
+    width: 100%;
+}
+
+.main-sql-container {
+    width: 60%;
+    height: 100%;
+    padding-left: 16px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.main-sql-container__editor {
+    height: 60%;
+    width: 100%;
+}
+
+.main-sql-container__editor-topbar {
+    height: 48px;
+    width: 100%;
+    padding-right: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.main-sql-container__tab-container {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.main-sql-container__tab {
+    height: 100%;
+    padding: 0 24px;
+    display: flex;
+    border-right: 1px solid var(--primary-border-color);
+    cursor: pointer;
+}
+
+.main-sql-container__tab.active {
+    background-color: var(--secondary-background);
+}
+
+.main-sql-container__input-container {
+    height: calc(100% - 48px);
+}
+
+.main-sql-container__input-container > textarea {
+    height: 100%;
+    width: 100%;
+    padding: 36px 18px 18px;
+    outline: none;
+    border: none;
+    resize: none;
+    font-size: 16px;
+    background: var(--secondary-background);
+    overflow-y: auto;
+}
+
+.main-sql-container__predefined-query-container {
+    height: 100%;
+    width: 100%;
+    padding: 18px;
+    background: var(--secondary-background);
+    overflow-y: auto;
+}
+
+.main-sql-container__editor-topbar-btn {
+    height: 32px;
+    padding: 0 16px;
+    color: white;
+    border: none;
+    background-color: green;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.main-sql-container__editor-topbar-btn:active {
+    background: gray;
+}
+
+.main-sql-container__output {
+    height: 40%;
+}
+
+.available-table-container {
+    position: relative;
+    width: 40%;
+    height: 100%;
+    border-left: 1px solid var(--primary-border-color);
+}
+
+.table-container__header {
+    height: 48px;
+    width: 100%;
+    padding: 0 16px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: 1px solid var(--primary-border-color);
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.table-container {
+    height: calc(100% - 48px);
+    overflow-y: auto;
+}
+
+.table-container__table {
+    padding: 16px 16px 24px;
+    overflow-x: auto;
+}
+
+.fields-container {
+    position: relative;
+    height: 100%;
+    min-width: 203px;
+    display: flex;
+    flex-direction: column;
+    padding: 0 16px;
+    overflow-y: auto;
+    border-right: 1px solid var(--primary-border-color);
+}
+
+/* .available-table-container > .arrow-container {
+    position: absolute;
+    left: 0px;
+    top: 12px;
+    height: 22px;
+    width: 22px;
+    display: flex;
+    border: 1px solid var(--primary-border-color);
+    z-index: 1;
+} */
+
+.main-sql-container > .arrow-container {
+    position: absolute;
+    right: 0px;
+    top: 12px;
+    height: 22px;
+    width: 22px;
+    display: flex;
+    border: 1px solid var(--primary-border-color);
+    z-index: 1;
+}
+
+.predefined-query-block {
+    width: 100%;
+    padding: 16px;
+    margin-bottom: 24px;
+    font-size: 16px;
+    font-weight: 600;
+    /* background-color: #87CEFA; */
+    background-color: #ced8f2;
+    cursor: pointer;
+}
+
+.predefined-query-block:active {
+    background-color: rgb(246, 238, 238);
+}
+
+.predefined-query__header {
+    margin: 16px 0;
+    font-size: 16px;
+    font-weight: 400;
+    color: #a50;
+}
+
+.query-error {
+    padding: 16px;
+    font-size: 16px;
+    font-weight: 600;
+    color: red;
+}
+
+.mobile-output-wrapper__tabs-container {
+    height: 45px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: 1px solid var(--primary-border-color);
+
+}
+
+.mobile-output-wrapper__tab {
+    width: 50%;
+    height: 100%;
+    padding-left: 16px;
+    border-right: 1px solid var(--primary-border-color);
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+}
+
+.mobile-output-wrapper__tab.active {
+    color: #0556f3;
+    border-bottom: 1px solid #0556f3;
+}
+
+.main-container__mobile-output-table {
+    height: calc(100% - 45px);
+    width: 100%;
+}
+
+@media screen and (max-width: 1099px) {
+    .main-container {
+        flex-direction: column;
+    }
+
+    .main-sql-container {
+        width: 100%;
+        height: 100%;
+    }
+
+    .main-sql-container__editor {
+        height: 60%;
+        width: 100%;
+    }
+
+    .main-sql-container__output {
+        display: none;
+    }
+
+    .fields-container {
+        display: none;
+    }
+
+    .available-table-container {
+        display: none;
+    }
+
+    .main-container__mobile-output-wrapper {
+        height: 40%;
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 1100px) {
+    .main-container__mobile-output-wrapper {
+        display: none;
+    }
+}

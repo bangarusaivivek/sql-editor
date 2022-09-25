@@ -1,0 +1,32 @@
+table {
+    border-collapse: initial;
+    border-spacing: 0;
+    width: 100%;
+    padding-top: 8px;
+}
+
+th {
+    background-color: var(--table-background-color);
+    border-top: 1px solid var(--primary-border-color);
+
+}
+
+td {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+th, td {
+    border-right: 1px solid var(--primary-border-color);
+    border-bottom: 1px solid var(--primary-border-color);
+}
+
+table tr td, table tr th {
+    padding: 4px 18px;
+    text-align: left;
+    min-width: 48px;
+}
+
+td:first-of-type, th:first-of-type {
+    border-left: 1px solid var(--primary-border-color);
+}
